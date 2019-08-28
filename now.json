@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "stripe-prismic-demo",
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
+  "routes": [
+    { "src": "/", "status": 302, "headers": { "Location": "/forrester-tei-2018" } },
+    { "src": "/preview", "dest": "/preview" },
+    { "src": "/(?<uid>[^/]+)$", "dest": "/page?uid=$uid" }
+  ]
+}
