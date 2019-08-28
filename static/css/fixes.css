@@ -122,16 +122,10 @@
   color: #3297d3;
 }
 
-.overview .intro li:before {
-  content: "";
-  width: 23px;
-  height: 23px;
+.overview .intro li svg {
   position: absolute;
-  left: 0;
-  top: 4px;
-  background: #aff1b6;
-  border-radius: 100px;
-  background: url('../images/check.svg');
+  left: 2px;
+  top: 5px;
 }
 
 div.Helm-FeatureDetail__body p {

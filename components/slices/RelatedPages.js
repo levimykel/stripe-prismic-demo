@@ -2,11 +2,11 @@ import React from 'react'
 import { RichText, Link as PrismicLink } from 'prismic-reactjs'
 import { linkResolver } from 'utils/linkResolver'
 
-const renderRelatedPages = (items) => {
+const renderRelatedPages = (items, colors) => {
   return items.map((item,index) => {
-    const textColor = index%2 == 0 ? '#24b47e' : '#3297d3'
-    const darkColor = index%2 == 0 ? '#159570' : '#217AB7'
-    const lightColor = index%2 == 0 ? '#74E4A2' : '#68D4F8'
+    const textColor = index%2 == 0 ? colors.secondary_07 : colors.primary_07
+    const darkColor = index%2 == 0 ? colors.secondary_14 : colors.primary_14
+    const lightColor = index%2 == 0 ? colors.secondary28 : colors.primary28
     const linkUrl = PrismicLink.url(item.link_to_the_relevant_page, linkResolver)
     return (
       <a className={`common-Link globalFooterCard`}
@@ -37,12 +37,12 @@ const renderRelatedPages = (items) => {
   })
 }
 
-const RelatedPages = ({ slice }) => {
+const RelatedPages = ({ slice, colors }) => {
   return (
     <div>
       <section className="globalFooterCards">
         <div className="container-xl">
-          { renderRelatedPages(slice.items) }
+          { renderRelatedPages(slice.items, colors) }
         </div>
       </section>
     </div>

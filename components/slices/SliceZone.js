@@ -8,19 +8,19 @@ import {
   SplitFeatureMediaList,
   Stats } from './'
 
-const SliceZone = ({ sliceZone }) => {
+const SliceZone = ({ sliceZone, colors }) => {
   return sliceZone.map((slice, index) => {
     switch (slice.slice_type) {
       case ('header'):
-        return <Header slice={slice} key={'slice-' + index} />
+        return <Header slice={slice} colors={colors} key={'slice-' + index} />
       case ('section___stat'):
-        return <Stats slice={slice} key={'slice-' + index} />
+        return <Stats slice={slice} colors={colors} key={'slice-' + index} />
       case ('email_form'):
         return <EmailCapture slice={slice} key={'slice-' + index} />
       case ('quote___feature'):
-        return <Overview slice={slice} key={'slice-' + index} />
+        return <Overview slice={slice} colors={colors} key={'slice-' + index} />
       case ('related_pages'):
-        return <RelatedPages slice={slice} key={'slice-' + index} />
+        return <RelatedPages slice={slice} colors={colors} key={'slice-' + index} />
       case ('feature_list'):
         return <FeatureList slice={slice} key={'slice-' + index} />
       case ('alternated_block'):

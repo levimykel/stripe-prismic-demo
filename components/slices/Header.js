@@ -1,4 +1,5 @@
 import React from 'react'
+import css from 'styled-jsx/css'
 import { RichText, Link as PrismicLink } from 'prismic-reactjs'
 import { linkResolver } from 'utils/linkResolver'
 import DefaultHeaderImage from './resources/DefaultHeaderImage'
@@ -21,7 +22,7 @@ const renderImage = (image) => {
   return( <DefaultHeaderImage/> )
 }
 
-const Header = ({ slice }) => {
+const Header = ({ slice, colors }) => {
   return (
     <section id="header" className="header">
       <div className="container-lg">
@@ -49,17 +50,22 @@ const Header = ({ slice }) => {
             <div className="stripe"></div>
             <div className="stripe"></div>
             <div className="stripe"></div>
-            <div className="stripe"></div>
-            <div className="stripe"></div>
-            <div className="stripe"></div>
-            <div className="stripe"></div>
-            <div className="stripe"></div>
-            <div className="stripe"></div>
+            <div className="stripe" style={{ backgroundColor: colors.secondary_42 }}></div>
+            <div className="stripe" style={{ backgroundColor: colors.primary13 }}></div>
+            <div className="stripe" style={{ backgroundColor: colors.secondary28 }}></div>
+            <div className="stripe" style={{ backgroundColor: colors.primary_50 }}></div>
+            <div className="stripe" style={{ backgroundColor: colors.secondary53 }}></div>
+            <div className="stripe" style={{ backgroundColor: colors.secondary_42 }}></div>
             <div className="stripe"></div>
             <div className="stripe"></div>
           </div>
         </div>
       </div>
+      <style jsx global>{`
+        .header-content h1 span.highlight {
+          color: ${colors.primary};
+        }
+      `}</style>
     </section>
   )
 }

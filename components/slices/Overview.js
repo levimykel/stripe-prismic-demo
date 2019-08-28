@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { linkResolver } from 'utils/linkResolver'
+import { customList } from 'utils/htmlSerializer'
 
-const renderQuotes = (items) => {
+const renderQuotes = (items, colors) => {
   return items.map((item,index) => {
     return (
       <li key={"big-stat-"+index}>
         <p className="common-BodyTitle">{ RichText.asText(item.quote) }</p>
-        <p className="common-UppercaseText">{ RichText.asText(item.position) }</p>
+        <p className="common-UppercaseText" style={{ color: colors.secondary_07 }}>{ RichText.asText(item.position) }</p>
         <p className="common-BodyText">{ RichText.asText(item.sector) }</p>
       </li>
     )
   })
 }
 
-const Overview = ({ slice }) => {
+const Overview = ({ slice, colors }) => {
   // Slide the quote left or right
   const maxIndex = slice.items.length-1
   const [quoteIndex, setQuoteIndex] = useState(0);
@@ -38,11 +39,11 @@ const Overview = ({ slice }) => {
         <div className="stripeContainer">
           <div className="grid">
             <div className="stripe"></div>
+            <div className="stripe" style={{ backgroundColor: colors.secondary53 }}></div>
+            <div className="stripe" style={{ backgroundColor: colors.secondary_42 }}></div>
             <div className="stripe"></div>
-            <div className="stripe"></div>
-            <div className="stripe"></div>
-            <div className="stripe"></div>
-            <div className="stripe"></div>
+            <div className="stripe" style={{ backgroundColor: colors.primary47 }}></div>
+            <div className="stripe" style={{ backgroundColor: colors.primary13 }}></div>
             <div className="stripe"></div>
           </div>
         </div>
@@ -50,11 +51,11 @@ const Overview = ({ slice }) => {
       <div className="content container-xl">
         <div className="intro">
           <h3 className="common-UppercaseTitle">{ RichText.asText(slice.primary.title) }</h3>
-          { RichText.render(slice.primary.text, linkResolver) }
+          { RichText.render(slice.primary.text, linkResolver, customList(colors)) }
         </div>
         <div className="common-Card quotes" data-visible-quote={quoteIndex}>
           <ul>
-            { renderQuotes(slice.items) }
+            { renderQuotes(slice.items, colors) }
           </ul>
           <div className="common-Button nav previous" onClick={ slideLeft }>
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15"
@@ -74,6 +75,11 @@ const Overview = ({ slice }) => {
           </div>
         </div>
       </div>
+      <style jsx global>{`
+        .overview .intro li {
+          color: ${colors.primary_07};
+        }
+      `}</style>
     </div>
   )
 }

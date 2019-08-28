@@ -15,6 +15,18 @@
         "placeholder": "slug"
       }
     },
+    "primary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Primary Color"
+      }
+    },
+    "secondary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Secondary Color"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
