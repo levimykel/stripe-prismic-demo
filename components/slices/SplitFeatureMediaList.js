@@ -39,6 +39,11 @@ const renderMediaList = (items) => {
 }
 
 const SplitFeatureMediaList = ({ slice }) => {
+  const backgroundStyle = 
+    slice.primary.background_color == 'White' ?
+    { background: 'none' } :
+    {}
+
   return (
     <div
       className="Helm-SplitFeatureMediaList FeaturePage__splitFeatureMediaList Helm-SplitFeatureMediaList__hasBackgroundStripe"
@@ -47,7 +52,7 @@ const SplitFeatureMediaList = ({ slice }) => {
       <div className="common-StripeGrid  Helm-SplitFeatureMediaList__stripes">
         <div className="backgroundContainer">
           <div className="grid">
-            <div className="background "></div>
+            <div className="background " style={ backgroundStyle }></div>
           </div>
         </div>
         <div className="stripeContainer">

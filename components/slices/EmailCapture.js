@@ -2,8 +2,13 @@ import React from 'react'
 import { RichText } from 'prismic-reactjs'
 
 const EmailCapture = ({ slice }) => {
+  const backgroundStyle = 
+    slice.primary.background_color == 'White' ?
+    { background: 'none' } :
+    {}
+
   return (
-    <aside className="Helm-EmailCapture js-email-capture-form">
+    <aside className="Helm-EmailCapture js-email-capture-form" style={ backgroundStyle }>
       <div className="Helm-EmailCapture__intro">
         <div className="Helm-EmailCapture__header">
           <h1 className="common-UppercaseTitle Helm__text--slate2 Helm-EmailCapture__title">

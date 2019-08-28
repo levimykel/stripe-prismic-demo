@@ -2,7 +2,6 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import { RichText, Link as PrismicLink } from 'prismic-reactjs'
 import { linkResolver } from 'utils/linkResolver'
-import DefaultHeaderImage from './resources/DefaultHeaderImage'
 
 const renderLinks = (items) => {
   return items.map((item, index) => {
@@ -19,10 +18,14 @@ const renderLinks = (items) => {
 
 const renderImage = (image) => {
   if (image.url) return( <img src={ image.url } /> ) 
-  return( <DefaultHeaderImage/> )
+  return null
 }
 
 const Header = ({ slice, colors }) => {
+  const backgroundStyle = 
+    slice.primary.background_color == 'White' ?
+    { background: 'none' } :
+    {}
   return (
     <section id="header" className="header">
       <div className="container-lg">
@@ -42,7 +45,7 @@ const Header = ({ slice, colors }) => {
       <div className="common-StripeGrid anchorBottom">
         <div className="backgroundContainer">
           <div className="grid">
-            <div className="background"></div>
+            <div className="background" style={ backgroundStyle }></div>
           </div>
         </div>
         <div className="stripeContainer">
